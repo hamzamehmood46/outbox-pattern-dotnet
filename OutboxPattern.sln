@@ -11,6 +11,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{B81BA18C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OutboxPattern.Tests", "tests\OutboxPattern.Tests\OutboxPattern.Tests.csproj", "{90F83B8F-D62B-4E59-9D4E-012367341006}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OutboxPattern.Demo", "src\OutboxPattern.Demo\OutboxPattern.Demo.csproj", "{DB8ACB8A-357E-43C8-A4DF-27C71079E133}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -28,9 +30,14 @@ Global
 		{90F83B8F-D62B-4E59-9D4E-012367341006}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{90F83B8F-D62B-4E59-9D4E-012367341006}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{90F83B8F-D62B-4E59-9D4E-012367341006}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB8ACB8A-357E-43C8-A4DF-27C71079E133}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB8ACB8A-357E-43C8-A4DF-27C71079E133}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB8ACB8A-357E-43C8-A4DF-27C71079E133}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB8ACB8A-357E-43C8-A4DF-27C71079E133}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{A4228377-16F2-449B-95A7-E5F9A021F144} = {22AD5D79-6A80-4F02-9E16-0DAAF75A2385}
 		{90F83B8F-D62B-4E59-9D4E-012367341006} = {B81BA18C-A9C8-4CF2-86CD-95243D487D6A}
+		{DB8ACB8A-357E-43C8-A4DF-27C71079E133} = {22AD5D79-6A80-4F02-9E16-0DAAF75A2385}
 	EndGlobalSection
 EndGlobal

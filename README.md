@@ -2,6 +2,9 @@
 
 [![CI](https://github.com/hamzamehmood46/outbox-pattern-dotnet/actions/workflows/ci.yml/badge.svg)](https://github.com/hamzamehmood46/outbox-pattern-dotnet/actions/workflows/ci.yml)
 
+**Live demo: [outbox-pattern-dotnet.onrender.com/swagger](https://outbox-pattern-dotnet.onrender.com/swagger)** (Swagger UI). Hosted on Render's free tier, so the first load after idle can take about a minute, and demo data resets on restart.
+
+Try it: `POST /api/invoices` saves an invoice and an outbox message together, and the background dispatcher publishes it to a simulated broker. Then break things with `POST /api/broker/mode`: set **Down**, create an invoice, and watch `GET /api/outbox` show it retrying with backoff (use `POST /api/demo/skip` to skip the wait); set it back to **Healthy** and it publishes. Set **LoseReply** and the broker takes the message but the acknowledgement is lost, so it is delivered twice (`GET /api/broker/deliveries`), yet `GET /api/effects` shows the invoice email sent **once**. A duplicate invoice number fails the save and leaves neither an invoice nor a message.
 A **.NET 8 / EF Core** implementation of the **transactional outbox** and **idempotent inbox** patterns: the reliable way to update a database *and* publish an event without ever doing one but not the other.
 
 ## The problem
@@ -65,7 +68,7 @@ services.AddHostedService(sp => new OutboxWorker(sp.GetRequiredService<IServiceS
 dotnet test
 ```
 
-12 tests, run against a real SQLite database:
+19 tests, run against a real SQLite database (12 for the library, 7 for the demo API):
 
 - business row and outbox row commit together; a failed write leaves **no orphan message**
 - publish once, in order; backoff schedule; dead-lettering after max attempts
